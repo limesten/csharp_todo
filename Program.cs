@@ -1,31 +1,36 @@
-﻿public class TodoItem
-{
-    public string? Description { get; set; }
-
-    public TodoItem(string description)
-    {
-        Description = description;
-    }
-}
-
-public class Program
+﻿public class Program
 {
     public static void Main(string[] args)
     {
-        string? todo = null;
-
-        while (string.IsNullOrEmpty(todo))
+        while (true)
         {
-            Console.WriteLine("Input todo item:");
-            todo = Console.ReadLine();
-            if (string.IsNullOrEmpty(todo))
-            {
-                Console.WriteLine("Todo item can not be empty.");
-            }
-        }
+            Console.WriteLine("Enter a number from the choices below:");
+            Console.WriteLine("1. Add todo");
+            Console.WriteLine("2. View todos");
+            Console.WriteLine("3. Edit a todo");
+            Console.WriteLine("4. Remove a todo");
+            var choice = Console.ReadLine();
 
-        var todoItem = new TodoItem(todo);
-        Console.WriteLine(todoItem.Description);
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine("Add");
+                    break;
+                case "2":
+                    Console.WriteLine("View");
+                    break;
+                case "3":
+                    Console.WriteLine("Edit");
+                    break;
+                case "4":
+                    Console.WriteLine("Remove");
+                    break;
+                default:
+                    Console.WriteLine("Invalid");
+                    break;
+            }
+
+        }
     }
 }
 
