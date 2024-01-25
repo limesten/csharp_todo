@@ -20,6 +20,47 @@
             Console.WriteLine($"{i + 1}. {items[i]}");
         }
     }
+
+    public void EditItem()
+    {
+        Console.WriteLine("Enter the number of the item you want to edit:");
+        for (var i = 0; i < items.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {items[i]}");
+        }
+        var choice = Console.ReadLine();
+        if (string.IsNullOrEmpty(choice))
+        {
+            Console.WriteLine("Please enter a choice and try again.");
+            return;
+        }
+        int index = int.Parse(choice) - 1;
+        Console.WriteLine("Enter edited todo:");
+        var newItem = Console.ReadLine();
+        if (string.IsNullOrEmpty(newItem))
+        {
+            Console.WriteLine("the item can not be empty, try again");
+            return;
+        }
+        items[index] = newItem;
+    }
+
+    public void DeleteItem()
+    {
+        Console.WriteLine("Enter the number of the item you want to delete:");
+        for (var i = 0; i < items.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {items[i]}");
+        }
+        var choice = Console.ReadLine();
+        if (string.IsNullOrEmpty(choice))
+        {
+            Console.WriteLine("Please enter a choice and try again.");
+            return;
+        }
+        int index = int.Parse(choice) - 1;
+        items.RemoveAt(index);
+    }
     public static void Main(string[] args)
     {
         Program program = new Program();
@@ -42,10 +83,10 @@
                     program.ViewItems();
                     break;
                 case "3":
-                    Console.WriteLine("Edit");
+                    program.EditItem();
                     break;
                 case "4":
-                    Console.WriteLine("Remove");
+                    program.DeleteItem();
                     break;
                 default:
                     Console.WriteLine("Invalid");
