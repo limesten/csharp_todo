@@ -89,7 +89,7 @@
                     program.DeleteItem();
                     break;
                 default:
-                    Console.WriteLine("Invalid");
+                    Console.WriteLine("Invalid choice, try again.");
                     break;
             }
 
